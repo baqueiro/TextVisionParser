@@ -43,7 +43,7 @@ def run_quickstart():
         text = process_file(file, client)
         
         with open("res/" + os.path.basename(file) + ".txt", "w") as text_file:
-            print(text, file=text_file)
+            print(text.encode("utf-8"), file=text_file)
     
 if __name__ == '__main__':
     run_quickstart()
