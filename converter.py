@@ -26,7 +26,6 @@ def absolute_file_paths(directory):
            yield os.path.abspath(os.path.join(dirpath, f))
 
 def process_file(file_name, client):
-    # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
         content = image_file.read()
 
@@ -37,18 +36,7 @@ def process_file(file_name, client):
     return document.text
 
 def run_quickstart():
-    # [START vision_quickstart]
-
-    # Imports the Google Cloud client library
-    # [START vision_python_migration_import]
-    
-    # [END vision_python_migration_import]
-
-    # Instantiates a client
-    # [START vision_python_migration_client]
     client = vision.ImageAnnotatorClient()
-    # [END vision_python_migration_client]
-    # The name of the image file to annotate
     files = [x for x in absolute_file_paths("resources2")]
     for file in files:
         print(file)
